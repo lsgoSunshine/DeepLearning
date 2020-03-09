@@ -109,6 +109,7 @@ for param in net.parameters():
 '''
 步骤四 ： 初始化模型参数.
 偏差初始化为0
+也可以不初始化，因为上面Linear已经初始化了
 '''
 init.normal_(net[0].weight, mean=0, std=0.01)
 init.constant_(net[0].bias, val=0)

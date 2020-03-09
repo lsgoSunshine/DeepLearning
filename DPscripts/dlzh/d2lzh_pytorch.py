@@ -256,6 +256,7 @@ class FlattenLayer(torch.nn.Module):
 
 
 # ########################### 3.11 ###############################
+'''这里是一个作图函数'''
 def semilogy(x_vals, y_vals, x_label, y_label, x2_vals=None, y2_vals=None,
              legend=None, figsize=(3.5, 2.5)):
     set_figsize(figsize)
@@ -343,7 +344,7 @@ def train_ch5(net, train_iter, test_iter, batch_size, optimizer, device, num_epo
 
 
 # ########################## 5.6 #########################3
-def load_data_fashion_mnist(batch_size, resize=None, root='~/Datasets/FashionMNIST'):
+def load_data_fashion_mnist(batch_size, resize=None, root='../Datasets/FashionMNIST'):
     """Download the fashion mnist dataset and then load into memory."""
     trans = []
     if resize:
@@ -351,8 +352,8 @@ def load_data_fashion_mnist(batch_size, resize=None, root='~/Datasets/FashionMNI
     trans.append(torchvision.transforms.ToTensor())
 
     transform = torchvision.transforms.Compose(trans)
-    mnist_train = torchvision.datasets.FashionMNIST(root=root, train=True, download=True, transform=transform)
-    mnist_test = torchvision.datasets.FashionMNIST(root=root, train=False, download=True, transform=transform)
+    mnist_train = torchvision.datasets.FashionMNIST(root=root, train=True, download=False, transform=transform)
+    mnist_test = torchvision.datasets.FashionMNIST(root=root, train=False, download=False, transform=transform)
     if sys.platform.startswith('win'):
         num_workers = 0  # 0表示不用额外的进程来加速读取数据
     else:
